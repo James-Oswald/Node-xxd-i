@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/James-Oswald/Node-xxd-i.git"
+    "url": "git+https://github.com/James-Oswald/Node-xxdi.git"
   },
   "author": "James Oswald",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/James-Oswald/Node-xxd-i/issues"
+    "url": "https://github.com/James-Oswald/Node-xxdi/issues"
   },
-  "homepage": "https://github.com/James-Oswald/Node-xxd-i#readme",
+  "homepage": "https://github.com/James-Oswald/Node-xxdi#readme",
   "devDependencies": {
     "typescript": "^3.9.6"
   },

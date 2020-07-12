@@ -10,8 +10,9 @@ function generateHeader(inputFileName, variableName, fileBuffer) {
     let fileBufferBytes = new Uint8Array(fileBuffer);
     let hexArray = "";
     for (let i = 0; i < fileBufferBytes.length; i++)
-        hexArray += "0x" + fileBufferBytes[i] + ",";
-    return `const char* ${variableName} = {${hexArray}};\nconst int ${variableName}_len = ${fileBufferBytes.length};`;
+        hexArray += "0x" + fileBufferBytes[i].toString(16) + ",";
+    hexArray = hexArray.slice(0, -1);
+    return `const char ${variableName}[]={${hexArray}};\nconst int ${variableName}_len = ${fileBufferBytes.length};`;
 }
 function headerSync(inputFile, outputFile = null, variableName = null) {
     let fileBuffer = fs.readFileSync(inputFile);
@@ -21,7 +22,7 @@ function headerSync(inputFile, outputFile = null, variableName = null) {
     return header;
 }
 exports.headerSync = headerSync;
-function header(inputFile, callback, outputFile = null, variableName = null) {
+function header(inputFile, callback = (s) => { }, outputFile = null, variableName = null) {
     fs.readFile(inputFile, function (err, fileBuffer) {
         if (err != null)
             throw err;

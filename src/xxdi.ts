@@ -8,8 +8,9 @@ function generateHeader(inputFileName:string, variableName:string|null, fileBuff
     let fileBufferBytes:Uint8Array = new Uint8Array(fileBuffer);
     let hexArray:string = "";
     for(let i:number = 0; i < fileBufferBytes.length; i++)
-        hexArray += "0x" + fileBufferBytes[i] + ",";
-    return `const char* ${variableName} = {${hexArray}};\nconst int ${variableName}_len = ${fileBufferBytes.length};`;
+        hexArray += "0x" + fileBufferBytes[i].toString(16) + ",";
+    hexArray = hexArray.slice(0, -1);
+    return `const char ${variableName}[]={${hexArray}};\nconst int ${variableName}_len = ${fileBufferBytes.length};`;
 }
 
 export function headerSync(inputFile:string, outputFile:string|null=null, variableName:string|null=null):string|undefined{
@@ -20,7 +21,7 @@ export function headerSync(inputFile:string, outputFile:string|null=null, variab
     return header;
 }
 
-export function header(inputFile:string, callback:(headerString:string)=>void, outputFile:string|null=null, variableName:string|null=null):void{
+export function header(inputFile:string, callback:(headerString:string)=>void=(s)=>{}, outputFile:string|null=null, variableName:string|null=null):void{
     fs.readFile(inputFile, function(err, fileBuffer){
         if(err != null)
             throw err;
