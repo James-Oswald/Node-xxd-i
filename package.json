@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/James-Oswald/Node-xxdi.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@james-oswald"
+  },
   "author": "James Oswald",
   "license": "MIT",
   "bugs": {
@@ -21,7 +24,6 @@
     "typescript": "^3.9.6"
   },
   "dependencies": {
-    "@types/node": "^14.0.22",
-    "uglify-js-es6": "^2.8.9"
+    "@types/node": "^14.0.22"
   }
 }
