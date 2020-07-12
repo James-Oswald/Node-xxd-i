@@ -1,0 +1,27 @@
+{
+  "name": "xxdi",
+  "version": "1.0.0",
+  "description": "A node package that provides similar functionality to the bash command xxd -i",
+  "main": "build/xxdi.js",
+  "scripts": {
+    "test": "node ./tests/test.js",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/James-Oswald/Node-xxd-i.git"
+  },
+  "author": "James Oswald",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/James-Oswald/Node-xxd-i/issues"
+  },
+  "homepage": "https://github.com/James-Oswald/Node-xxd-i#readme",
+  "devDependencies": {
+    "typescript": "^3.9.6"
+  },
+  "dependencies": {
+    "@types/node": "^14.0.22",
+    "uglify-js-es6": "^2.8.9"
+  }
+}
