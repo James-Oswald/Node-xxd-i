@@ -1,6 +1,6 @@
 {
   "name": "xxdi",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A node package that provides similar functionality to the bash command xxd -i",
   "main": "build/xxdi.js",
   "scripts": {

@@ -3,6 +3,6 @@
 
 const cp = require("child_process");
 
-process.chdir("../examples");
+process.chdir("./examples");
 cp.execSync("npm uninstall xxdi");
 cp.execSync("npm install xxdi");

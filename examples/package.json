@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "xxdi": "^1.0.1"
+    "xxdi": "^1.0.3"
   }
 }

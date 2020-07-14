@@ -19,8 +19,9 @@
             "label": "build examples",
             "type": "shell",
             "windows": {
-                "command": "./test/buildExamples"
-            }
+                "command": "node ./tools/buildExamples.js"
+            },
+            "problemMatcher": []
         }
     ]
 }
