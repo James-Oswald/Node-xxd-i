@@ -1,2 +1,4 @@
 build/* linguist-detectable=false
 tests/* linguist-detectable=false
+tools/* linguist-detectable=false
+examples/* linguist-detectable=false

@@ -3,3 +3,4 @@ src
 tests
 tools
 tsconfig.json
+examples/node_modules

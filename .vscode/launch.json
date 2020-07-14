@@ -8,10 +8,11 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\build\\xxdi.js",
+            "program": "${workspaceFolder}\\tests\\ex1.test.js",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
-            ]
+            ],
+            "preLaunchTask": "npm build"
         }
     ]
 }

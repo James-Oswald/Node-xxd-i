@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "npm build",
+            "type": "shell",
+            "windows": {
+                "command": "npm run-script build"
+            }
+        },
+        {
+            "label": "npm test",
+            "type": "shell",
+            "windows": {
+                "command": "npm test"
+            }
+        },
+        {
+            "label": "build examples",
+            "type": "shell",
+            "windows": {
+                "command": "./test/buildExamples"
+            }
+        }
+    ]
+}

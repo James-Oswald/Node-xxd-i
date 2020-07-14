@@ -2,7 +2,7 @@ import fs = require("fs");
 
 function generateHeader(inputFileName:string, variableName:string|null, fileBuffer:Buffer):string{
     if(variableName == null)
-        variableName = inputFileName.replace(/[/\\?%*:|"<>.]/g, '')
+        variableName = inputFileName.replace(/[/\\?%*:|"<>.]/g, '_')
     if(!/^[a-zA-Z_][a-zA-Z0-9_]*$/.test(variableName))
         throw new Error(`Illegal C identifier "${variableName}"`);
     let fileBufferBytes:Uint8Array = new Uint8Array(fileBuffer);
@@ -10,7 +10,7 @@ function generateHeader(inputFileName:string, variableName:string|null, fileBuff
     for(let i:number = 0; i < fileBufferBytes.length; i++)
         hexArray += "0x" + fileBufferBytes[i].toString(16) + ",";
     hexArray = hexArray.slice(0, -1);
-    return `const char ${variableName}[]={${hexArray}};\nconst int ${variableName}_len = ${fileBufferBytes.length};`;
+    return `const unsigned char ${variableName}[] = {${hexArray}};\nconst int ${variableName}_len = ${fileBufferBytes.length};`;
 }
 
 export function headerSync(inputFile:string, outputFile:string|null=null, variableName:string|null=null):string|undefined{
