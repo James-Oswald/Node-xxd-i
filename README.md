@@ -40,16 +40,19 @@ index.js
 let xxdi = require("xxdi");
 
 //log header text sync
-console.log(xxdi.headerSync("helloWorld.txt"));
+let xxdi = require("xxdi");
+
+//log header text sync
+console.log(`sync, default var name:\n${ xxdi.headerSync("helloWorld.txt") }\n`);
 
 //log header text async
-xxdi.header("helloWorld.txt", (s)=>{console.log(s);});
+xxdi.header("helloWorld.txt", (s)=>{console.log(`async, default var name:\n${ s }\n`);});
 
 //log header text, custom C variable name sync
-console.log(xxdi.headerSync("helloWorld.txt", null, "hello"));
+console.log(`sync, custom var name:\n${ xxdi.headerSync("helloWorld.txt", null, "hello") }\n`);
 
 //log header text, custom C variable name async
-xxdi.header("helloWorld.txt", (s)=>{console.log(s);}, "hello");
+xxdi.header("helloWorld.txt", (s)=>{console.log(`async, custom var name:\n${ s }\n`);}, null, "hello");
 
 //create header with custom C var name file sync 
 xxdi.headerSync("helloWorld.txt", "helloWorld.h", "hello");
@@ -59,18 +62,24 @@ xxdi.header("helloWorld.txt", (s)=>{}, "helloWorld.h", "hello");
 ```
 console output
 ```txt
-const char helloWorldtxt[]={0x48,0x65,0x6c,0x6c,0x6f,0x20,0x57,0x6f,0x72,0x6c,0x64,0x21};
-const int helloWorldtxt_len = 12;
-const char hello[]={0x48,0x65,0x6c,0x6c,0x6f,0x20,0x57,0x6f,0x72,0x6c,0x64,0x21};
+const unsigned char helloWorld_txt[] = {0x48,0x65,0x6c,0x6c,0x6f,0x20,0x57,0x6f,0x72,0x6c,0x64,0x21};
+const int helloWorld_txt_len = 12;
+
+sync, custom var name:
+const unsigned char hello[] = {0x48,0x65,0x6c,0x6c,0x6f,0x20,0x57,0x6f,0x72,0x6c,0x64,0x21};
 const int hello_len = 12;
-const char helloWorldtxt[]={0x48,0x65,0x6c,0x6c,0x6f,0x20,0x57,0x6f,0x72,0x6c,0x64,0x21};
-const int helloWorldtxt_len = 12;
-const char helloWorldtxt[]={0x48,0x65,0x6c,0x6c,0x6f,0x20,0x57,0x6f,0x72,0x6c,0x64,0x21};
-const int helloWorldtxt_len = 12;
+
+async, default var name:
+const unsigned char helloWorld_txt[] = {0x48,0x65,0x6c,0x6c,0x6f,0x20,0x57,0x6f,0x72,0x6c,0x64,0x21};
+const int helloWorld_txt_len = 12;
+
+async, custom var name:
+const unsigned char hello[] = {0x48,0x65,0x6c,0x6c,0x6f,0x20,0x57,0x6f,0x72,0x6c,0x64,0x21};
+const int hello_len = 12;
 ```
 helloWorld.h
 ```c
-const char hello[]={0x48,0x65,0x6c,0x6c,0x6f,0x20,0x57,0x6f,0x72,0x6c,0x64,0x21};
+const unsigned char hello[] = {0x48,0x65,0x6c,0x6c,0x6f,0x20,0x57,0x6f,0x72,0x6c,0x64,0x21};
 const int hello_len = 12;
 ```
 

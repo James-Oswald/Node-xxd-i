@@ -1,16 +1,16 @@
 let xxdi = require("xxdi");
 
 //log header text sync
-console.log(xxdi.headerSync("helloWorld.txt"));
+console.log(`sync, default var name:\n${ xxdi.headerSync("helloWorld.txt") }\n`);
 
 //log header text async
-xxdi.header("helloWorld.txt", (s)=>{console.log(s);});
+xxdi.header("helloWorld.txt", (s)=>{console.log(`async, default var name:\n${ s }\n`);});
 
 //log header text, custom C variable name sync
-console.log(xxdi.headerSync("helloWorld.txt", null, "hello"));
+console.log(`sync, custom var name:\n${ xxdi.headerSync("helloWorld.txt", null, "hello") }\n`);
 
 //log header text, custom C variable name async
-xxdi.header("helloWorld.txt", (s)=>{console.log(s);}, "hello");
+xxdi.header("helloWorld.txt", (s)=>{console.log(`async, custom var name:\n${ s }\n`);}, null, "hello");
 
 //create header with custom C var name file sync 
 xxdi.headerSync("helloWorld.txt", "helloWorld.h", "hello");
